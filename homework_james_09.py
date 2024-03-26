@@ -137,7 +137,7 @@ def open_new_ticket(customer ="", issue ="", status ="open"):
 def update_ticket(ticket, open_or_close):
     service_tickets[ticket]["Status"] = open_or_close
 
-# 
+# display all tickets unless otherwise specified by status
 def display_tickets(status ="all"):
     for key, value in service_tickets.items():
         if status == "all":
@@ -157,7 +157,25 @@ print("\nDisplaying Open Tickets: ")
 display_tickets("open")
 print("\nDisplaying Closed Tickets: ")
 display_tickets("closed")
-print("")
+print()
+
+
 
 print("\n=== 4. Python Essentials for Business Analytics ===\n")
 
+import copy
+
+weekly_sales = {
+    "Week 1": {"Electronics": 12000, "Clothing": 5000, "Groceries": 7000},
+    "Week 2": {"Electronics": 15000, "Clothing": 6000, "Groceries": 8000}
+}
+
+# create deep copy
+weekly_sales_copy = copy.deepcopy(weekly_sales)
+
+# update sales figure in copied data
+weekly_sales_copy["Week 2"]["Electronics"] = 18000
+
+# prints for verification
+print(weekly_sales)
+print(weekly_sales_copy)
